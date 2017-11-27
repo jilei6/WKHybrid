@@ -1,6 +1,7 @@
 # HybridDemo
-上一篇讲了基于UIWebview的Hybrid的架构设计，深知UIWebview无法和WKWebview的优越性能相媲美，所以最近又讲框架优化完美的支持了WKWebview。架构思想其实都差不多，不过比UIWebview多了个别核心模块，话不多说，先上新设计图：
-![ico原来的样子](https://github.com/jilei6/WKHybrid/blob/master/wk1.png)
+上一篇讲了基于UIWebview的Hybrid的架构设计，深知UIWebview无法和WKWebview的优越性能相媲美，所以最近又讲框架优化完美的支持了WKWebview。架构思想其实都差不多，不过比UIWebview多了个别核心模块，话不多说，先上新设计图：  
+  
+  ![ico原来的样子](https://github.com/jilei6/WKHybrid/blob/master/wk1.png)
 整体思路是这样的：
 
 1.在iOS里面启动一个weberver服务，这个服务映射根目录为前端包文件夹，启动这个服务的目的就是为了解决wk不能加载本地资源的问题
