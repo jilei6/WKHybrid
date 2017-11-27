@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             HybridConfig.routeFilePath = url.path
         }
 
-        if let web = Router.shared.webView(routeUrl: "/main") {
+        if let web = Router.shared.webView(routeUrl: "main") {
             web.delegate = self
             web.scrollView.bounces = false;
             web.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height )

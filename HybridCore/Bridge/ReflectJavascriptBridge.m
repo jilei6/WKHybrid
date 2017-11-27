@@ -107,6 +107,7 @@
             [self fetchQueueingCommands];
         }
         decisionHandler(WKNavigationActionPolicyCancel);
+        return ;
     }
     
     if ([_delegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
