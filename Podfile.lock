@@ -1,0 +1,17 @@
+PODS:
+  - GCDWebServer (3.3.3):
+    - GCDWebServer/Core (= 3.3.3)
+  - GCDWebServer/Core (3.3.3)
+  - objective-zip (1.0.3)
+
+DEPENDENCIES:
+  - GCDWebServer (~> 3.0)
+  - objective-zip (~> 1.0)
+
+SPEC CHECKSUMS:
+  GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
+  objective-zip: 2f4eba2ed4a06ed74c7e6e4e7b80e6cacf212217
+
+PODFILE CHECKSUM: 79e975036978fd37601f0c68e28d3f39ac415d90
+
+COCOAPODS: 1.1.1

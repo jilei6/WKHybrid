@@ -1,0 +1,24 @@
+disabled_rules:
+    - line_length
+    - empty_count
+    - file_length
+    - function_body_length
+    - function_parameter_count
+    - todo
+    - type_body_length
+    - trailing_whitespace
+    - variable_name
+    - cyclomatic_complexity
+    - implicit_getter
+    - syntactic_sugar
+    - force_cast
+    - shorthand_operator
+    - redundant_optional_initialization
+    - redundant_void_return
+    - unused_closure_parameter 
+    - vertical_parameter_alignment 
+
+excluded:
+    - Pods
+
+force_try: warning

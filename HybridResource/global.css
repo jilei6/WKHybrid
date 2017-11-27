@@ -1,0 +1,30 @@
+.header {
+  background-color: red;
+  width: 200px;
+  height: 100px;
+}
+
+.menu {
+  float: left;
+  height: 300px;
+  width: 100px;
+  background-color: green;
+}
+
+.content {
+  float: left;
+  height: 300px;
+  width: 100px;
+  background-color: black;
+  color: white;
+}
+
+.footer {
+  clear: both;
+  background-color: #52FF51
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+}

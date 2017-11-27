@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height">
+<!--   <script type="text/javascript" src="./common/global.js"></script>
+  <script type="text/javascript" src="./common/fastclick.js"></script> -->
+  <style>
+  	body {
+  		display: flex;
+  		flex-direction: column;
+  	}
+    .header {
+      background-color: red;
+      width: 200px;
+      height: 100px;
+    }
+
+    .menu {
+      float: left;
+      height: 300px;
+      width: 100px;
+      background-color: green;
+    }
+
+    .content {
+      float: left;
+      height: 300px;
+      width: 100px;
+      background-color: black;
+      color: white;
+    }
+
+    .footer {
+      clear: both;
+      background-color: #52FF51
+    }
+
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+    }
+  </style>
+  <script type="text/javascript">
+
+;(function() {
+    if (window.Hybrid) {
+        return;
+    }
+    var iFrame = document.createElement("iframe");
+    iFrame.style.display = 'none';
+    iFrame.src = "ReflectJavascriptBridge://_InjectJs_";
+    document.documentElement.appendChild(iFrame);
+    setTimeout(function() {
+        document.documentElement.removeChild(iFrame);
+    }, 0);
+})();
+
+function reflectJavascriptBridgeRegisterFunction(name, func) {
+    if (window.Hybrid) {
+        window.Hybrid[name] = func;
+    } else if (window.RJBRegisteredFunctions) {
+        window.RJBRegisteredFunctions.push({name: name, func: func});
+        console.log("push to functions");
+    } else {
+        window.RJBRegisteredFunctions = [{name: name, func: func}];
+        console.log("create functions");
+    }
+}
+
+reflectJavascriptBridgeRegisterFunction("jsFunc", function(data1, data2) {
+	console.log("native call js function, arg" + data1 + " " + data2);
+})
+
+var app = {
+  sample1: function() {
+    Hybrid.plugin.sample1();
+  },
+
+  sample2: function() {
+    Hybrid.plugin.sample2("js参数");
+  },
+
+  sample3: function() {
+    Hybrid.plugin.sample3(function(value) {
+      console.log('获取返回值: ' + value);
+    })
+  },
+
+  sample4: function() {
+    Hybrid.plugin.sample4("abc", "def", function(value) {
+      console.log('获取返回值: ' + value);
+    })
+  },
+
+  sample5: function() {
+    Hybrid.plugin.sample5(1, 1.5, function(value) {
+      console.log('获取返回值: ' + value);
+    });
+  },
+
+  sample6: function() {
+    Hybrid.plugin.sample6([1, 2, 3], {"key1" : 1, "key2" : 2}, function(value) {
+      console.log('获取返回值: ' + value);
+    })
+  },
+
+  sample7: function() {
+    Hybrid.plugin.sample7(function(params) {
+      console.log("Native执行js闭包: " + params);
+    }, function(retValue) {
+      console.log('获取返回值: ' + retValue);
+    })
+  },
+
+  sample8: function() {
+    Hybrid.navigator.push("/second")
+  }
+}
+  </script>
+</head>
+<body>
+  <div>
+  	<p>1. 调用本地方法，无参数，无返回值</p>
+  	<button onclick="app.sample1()">button</button>
+  </div>
+
+  <div>
+  	<p>2. 调用本地方法，有string类型参数，无返回值</p>
+  	<button onclick="app.sample2()">button</button>
+  </div>
+
+  <div>
+    <p>3. 调用原生方法，无参数，有string类型返回值</p>
+    <button onclick="app.sample3()">button</button>
+  </div>
+
+  <div>
+    <p>4. 调用原生方法，有参数，有返回值</p>
+    <button onclick="app.sample4()">button</button>
+  </div>  
+
+  <div>
+    <p>5. 调用原生方法，int、float、string类型参数，有返回值</p>
+    <button onclick="app.sample5()">button</button>
+  </div>
+
+  <div>
+    <p>6. 调用原生方法，数组、字典类型参数，有返回值</p>
+    <button onclick="app.sample6()">button</button>
+  </div>
+
+  <div>
+    <p>7. 调用原生方法，闭包类型参数，有返回值</p>
+    <button onclick="app.sample7()">button</button>
+  </div>
+
+  <div>
+    <p>8. 调用原生方法，执行转场动画</p>
+    <button onclick="app.sample8()">button</button>
+  </div>
+</body>
+</html>
